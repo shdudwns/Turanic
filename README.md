@@ -1,7 +1,7 @@
 # Turanic
 
 ## THIS BRACH TESTING AREA NOT STABLE!
-## MAKE SHOULD SOME BUGS
+##  CAN MAKE SOME BUGS
 Fast server software for Minecraft PE and W10 Edition - v1.1.x.
 Turanic based on SteadFast2, GenisysPro and MiNET.
 
