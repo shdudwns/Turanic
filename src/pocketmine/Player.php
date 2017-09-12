@@ -4454,29 +4454,24 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
      * @param int $mode
      * @param array|null $targets
      */
-    public function sendPosition(Vector3 $pos, $yaw = null, $pitch = null, $mode = MovePlayerPacket::MODE_NORMAL, array $targets = null)
-    {
-        $yaw = $yaw === null ? $this->yaw : $yaw;
-        $pitch = $pitch === null ? $this->pitch : $pitch;
+    public function sendPosition(Vector3 $pos, $yaw = null, $pitch = null, $mode = MovePlayerPacket::MODE_NORMAL, array $targets = null){
+		$yaw = $yaw === null ? $this->yaw : $yaw;
+		$pitch = $pitch === null ? $this->pitch : $pitch;
 
-        $pk = new MovePlayerPacket();
-        $pk->eid = $this->getId();
-        $pk->x = $pos->x;
-        $pk->y = $pos->y + $this->getEyeHeight();
-        $pk->z = $pos->z;
-        $pk->bodyYaw = $yaw;
-        $pk->pitch = $pitch;
-        $pk->yaw = $yaw;
-        $pk->mode = $mode;
+		$pk = new MovePlayerPacket();
+		$pk->eid = $this->getId();
+		$pk->x = $pos->x;
+		$pk->y = $pos->y + $this->getEyeHeight();
+		$pk->z = $pos->z;
+		$pk->bodyYaw = $yaw;
+		$pk->pitch = $pitch;
+		$pk->yaw = $yaw;
+		$pk->mode = $mode;
 
-        if ($targets !== null) {
-            $this->server->broadcastPacket($targets, $pk);
-        } else {
-            $this->dataPacket($pk);
-        }
+		$this->level->addPlayerMovementToQueue($pk); // TODO: add targets
 
-        $this->newPosition = null;
-    }
+		$this->newPosition = null;
+	}
 
     protected function checkChunks()
     {
