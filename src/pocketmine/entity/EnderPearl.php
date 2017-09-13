@@ -78,7 +78,7 @@ class EnderPearl extends Projectile {
 
 		$hasUpdate = parent::onUpdate($currentTick);
 
-		if($this->age > 1200 or $this->isCollided){
+		if($this->age > 1200 or $this->isCollided or $this->hadCollision){
 			$this->teleportShooter();
 			$hasUpdate = true;
 		}
