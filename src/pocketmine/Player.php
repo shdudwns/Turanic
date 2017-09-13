@@ -153,6 +153,7 @@ use pocketmine\network\mcpe\protocol\TextPacket;
 use pocketmine\network\mcpe\protocol\UpdateAttributesPacket;
 use pocketmine\network\mcpe\protocol\UpdateBlockPacket;
 use pocketmine\network\mcpe\protocol\TransferPacket;
+use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\network\SourceInterface;
 use pocketmine\permission\PermissibleBase;
 use pocketmine\permission\PermissionAttachment;
@@ -3036,7 +3037,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
                                             $ev->getProjectile()->kill();
                                         } else {
                                             $ev->getProjectile()->spawnToAll();
-                                            $this->level->addSound(new LaunchSound($this), $this->getViewers());
+                                            $this->level->broadcastLevelSoundEvent($this, LevelSoundEventPacket::SOUND_BOW);
                                         }
                                     } else {
                                         $ev->getProjectile()->spawnToAll();
