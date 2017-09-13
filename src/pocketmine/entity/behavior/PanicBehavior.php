@@ -1,6 +1,6 @@
 <?php
 
-namespace pocketmine\entity\behaviorsl;
+namespace pocketmine\entity\behavior;
 
 class PanicBehavior extends StrollBehavior{
 	
