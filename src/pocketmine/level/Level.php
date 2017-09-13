@@ -1135,8 +1135,10 @@ class Level implements ChunkManager, Metadatable
 	
 	protected function tickChunks($tick){
     	foreach($this->chunks as $chunk){
-    		foreach($chunk->getEntities() as $e){
-    			$e->onUpdate($tick);
+    		foreach($chunk->getEntities() as $id => $e){
+    			if(!isset($this->updateEntities[$id])){
+    			 $e->onUpdate($tick);
+    			}
     		}
     	}
     }
