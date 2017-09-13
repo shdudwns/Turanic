@@ -25,6 +25,7 @@ use pocketmine\level\Level;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddEntityPacket;
 use pocketmine\Player;
+use pocketmine\item\Item as ItemItem;
 use pocketmine\level\particle\ItemBreakParticle;
 
 class Snowball extends Projectile {
