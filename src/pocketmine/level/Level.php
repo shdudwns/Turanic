@@ -1904,6 +1904,7 @@ class Level implements ChunkManager, Metadatable
         if ($item->canBePlaced()) {
             $hand = $item->getBlock();
             $hand->position($block);
+		$this->addSound(new BlockPlaceSound($hand));
         } else {
             return false;
         }
