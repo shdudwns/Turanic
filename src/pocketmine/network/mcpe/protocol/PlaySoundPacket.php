@@ -33,28 +33,20 @@ class PlaySoundPacket extends DataPacket {
 	public $x;
 	public $y;
 	public $z;
-	public $volume;
-	public $float;
+	public $volume = 1.0;
+	public $pitch = 1.0;
 
-	/**
-	 *
-	 */
+	
 	public function decode(){
-		$this->sound = $this->getString();
-		$this->getBlockPos($this->x, $this->y, $this->z);
-		$this->volume = $this->getFloat();
-		$this->float = $this->getFloat();
+		
 	}
 
-	/**
-	 *
-	 */
 	public function encode(){
 		$this->reset();
 		$this->putString($this->sound);
-		$this->putBlockPos($this->x, $this->y, $this->z);
-		$this->putFloat($this->volume);
-		$this->putFloat($this->float);
+		$this->putBlockCoords($this->x * 8, $this->y * 8, $this->z * 8);
+		$this->putLFloat($this->volume);
+		$this->putLFloat($this->pitch);
 	}
 
 	/**
