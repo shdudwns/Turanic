@@ -23,5 +23,5 @@ Turanic based on SteadFast2, Nukkit, GenisysPro and MiNET.
 - [ ] **New Chunk Region System**
 - [ ] **Fast Nbt writer/reader**
 - [ ] **Basic Redstone system(without lag)**
-- [ ] **Pistons and ShulkerBox**
+- [ ] **Pistons and ShulkerBox** 
 - [ ] **Fix some issues on inventory/transaction**
